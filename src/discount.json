@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "discount": 15
+    },
+    {
+        "id": 2,
+        "discount": 20
+    },
+    {
+        "id": 5,
+        "discount": 30
+    }
+]
