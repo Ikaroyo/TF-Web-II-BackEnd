@@ -80,7 +80,12 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
   
 
 ## Enlace al Frontend
+Requisitos:
+- Tener index.js de Backend corriento
+- Tener creadas las bases de datos en local seguir las instrucciones de README que se encuentra aqui
+
+
 [Enlace al Frontend](https://ikaroyo.github.io/TF-Web-II-FrontEnd/)
 
 ## Enlace al Backend
-[Enlace al Backend](https://tf-web-ii-backend.onrender.com/)
+[Enlace al Backend](https://github.com/Ikaroyo/TF-Web-II-BackEnd/)
