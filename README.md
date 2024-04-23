@@ -64,6 +64,18 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
      email VARCHAR(255) UNIQUE
    );
 
+### Configuración de la Base de Datos
+
+#### Si desea modificar el archivo index.js del server puede hacerlo, de lo contrario deberás crear una base de datos local con los siguientes datos:
+
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "store"
+
+  y las tablas antes mencionadas
+  
+
 ## Enlace al Frontend
 [Enlace al Frontend](https://ikaroyo.github.io/TF-Web-II-FrontEnd/index.html)
 
