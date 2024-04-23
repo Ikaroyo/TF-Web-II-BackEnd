@@ -17,6 +17,8 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
 - mysql
 
 #### Estructura de la Base de Datos
+##### Nombre Base de Datos: **store**
+
 1. **Tabla "orders"**:
    | Columna   | Tipo    | Descripción                 |
    |-----------|---------|-----------------------------|
