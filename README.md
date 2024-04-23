@@ -82,7 +82,7 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
 ## Enlace al Frontend
 Requisitos:
 - Tener index.js de Backend corriento
-- Tener creadas las bases de datos en local seguir las instrucciones de README que se encuentra aqui
+- Tener creadas las bases de datos en local seguir las instrucciones de README que se encuentra aqui, tambien puedes importar la base de datos utilizando el archivo **database.sql** que se encuentra en la raiz de este repositorio
 
 
 [Enlace al Frontend](https://ikaroyo.github.io/TF-Web-II-FrontEnd/)
