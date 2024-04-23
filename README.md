@@ -30,8 +30,10 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
    CREATE TABLE orders (
      id INT AUTO_INCREMENT PRIMARY KEY,
      total DECIMAL(10, 2),
-     shipping DECIMAL(10, 2)
+     shipping DECIMAL(10, 2),
+     date DATETIME
    );
+
 
 2. **Tabla "items"**:
    | Columna    | Tipo    | Descripción                          |
