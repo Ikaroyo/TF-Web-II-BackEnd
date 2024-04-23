@@ -62,7 +62,7 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
    ```sql
    CREATE TABLE suscribe (
      id INT AUTO_INCREMENT PRIMARY KEY,
-     email VARCHAR(255) UNIQUE
+     email VARCHAR(100) UNIQUE
    );
 
 ### Configuración de la Base de Datos
