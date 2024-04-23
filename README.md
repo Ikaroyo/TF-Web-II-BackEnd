@@ -44,13 +44,14 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
 
    ```sql
    CREATE TABLE items (
-     id INT AUTO_INCREMENT PRIMARY KEY,
+     id INT PRIMARY KEY,
      order_id INT,
      name VARCHAR(255),
      price DECIMAL(10, 2),
      quantity INT,
      FOREIGN KEY (order_id) REFERENCES orders(id)
    );
+
 
 3. **Tabla "suscribe"**:
    | Columna   | Tipo    | Descripción                        |
