@@ -44,7 +44,7 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
 
    ```sql
    CREATE TABLE items (
-     id INT PRIMARY KEY,
+     id INT,
      order_id INT,
      name VARCHAR(255),
      price DECIMAL(10, 2),
