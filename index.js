@@ -47,15 +47,23 @@ async function storeOrder(data) {
     database: "store",
   });
 
-  const order = processDataToCreateOrder(data);
-  const items = processDataToFillDB(data, order.id);
+  try {
+    await connect(connection);
 
-  await connect(connection);
-  await insertOrder(connection, order);
-  await insertItems(connection, items);
+    const order = processDataToCreateOrder(data);
+    await insertOrder(connection, order);
+    
+    const items = processDataToFillDB(data, order.id);
+    await insertItems(connection, items);
 
-  connection.end();
+    console.log("Pedido y items insertados correctamente en la base de datos");
+  } catch (error) {
+    console.error("Error en el proceso de compra:", error);
+  } finally {
+    connection.end();
+  }
 }
+
 
 function connect(connection) {
   return new Promise((resolve, reject) => {
@@ -71,10 +79,14 @@ function connect(connection) {
 }
 
 function insertOrder(connection, order) {
+  // Obtener la fecha y hora actual
+  const now = new Date();
+  const datetime = now.toISOString(); // Formato YYYY-MM-DDTHH:MM:SS
+
   return new Promise((resolve, reject) => {
     connection.query(
-      "INSERT INTO orders (total, shipping) VALUES (?, ?)",
-      [order.total, order.shipping],
+      "INSERT INTO orders (total, shipping, date) VALUES (?, ?, ?)",
+      [order.total, order.shipping, datetime],
       (err, result) => {
         if (err) {
           reject(err);
@@ -87,6 +99,7 @@ function insertOrder(connection, order) {
     );
   });
 }
+
 
 function insertItems(connection, items) {
   return new Promise((resolve, reject) => {
@@ -177,6 +190,29 @@ app.get("/suscribe", async (req, res) => {
     return res.status(500).json({ error: "Error al suscribirse" });
   }
 });
+
+
+app.get("/orders", async (req, res) => {
+  try {
+    const connection = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "store",
+    });
+
+    await connect(connection);
+
+    const items = await query(connection, "SELECT * FROM items");
+    
+    connection.end();
+    res.json(items);
+  } catch (error) {
+    console.error("Error al obtener los items:", error);
+    res.status(500).json({ error: "Error al obtener los items" });
+  }
+});
+
 
 function query(connection, sql, values) {
   return new Promise((resolve, reject) => {

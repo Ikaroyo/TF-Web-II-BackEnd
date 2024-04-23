@@ -30,8 +30,10 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
    CREATE TABLE orders (
      id INT AUTO_INCREMENT PRIMARY KEY,
      total DECIMAL(10, 2),
-     shipping DECIMAL(10, 2)
+     shipping DECIMAL(10, 2),
+     date DATETIME
    );
+
 
 2. **Tabla "items"**:
    | Columna    | Tipo    | Descripción                          |
@@ -44,13 +46,14 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
 
    ```sql
    CREATE TABLE items (
-     id INT AUTO_INCREMENT PRIMARY KEY,
+     id INT,
      order_id INT,
      name VARCHAR(255),
      price DECIMAL(10, 2),
      quantity INT,
      FOREIGN KEY (order_id) REFERENCES orders(id)
    );
+
 
 3. **Tabla "suscribe"**:
    | Columna   | Tipo    | Descripción                        |
@@ -61,7 +64,7 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
    ```sql
    CREATE TABLE suscribe (
      id INT AUTO_INCREMENT PRIMARY KEY,
-     email VARCHAR(255) UNIQUE
+     email VARCHAR(100) UNIQUE
    );
 
 ### Configuración de la Base de Datos
@@ -77,7 +80,12 @@ Este código es una aplicación Node.js que utiliza Express para crear un servid
   
 
 ## Enlace al Frontend
+Requisitos:
+- Tener index.js de Backend corriento
+- Tener creadas las bases de datos en local seguir las instrucciones de README que se encuentra aqui, tambien puedes importar la base de datos utilizando el archivo **database.sql** que se encuentra en la raiz de este repositorio
+
+
 [Enlace al Frontend](https://ikaroyo.github.io/TF-Web-II-FrontEnd/)
 
 ## Enlace al Backend
-[Enlace al Backend](https://tf-web-ii-backend.onrender.com/)
+[Enlace al Backend](https://github.com/Ikaroyo/TF-Web-II-BackEnd/)
